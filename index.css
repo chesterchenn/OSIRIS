@@ -5,6 +5,13 @@ a {
 a:visited {
   color: #999;
 }
+input {
+  border: 1px solid #999;
+}
+input:hover, input:focus {
+  border: 1px solid #88bbff;
+  outline: 0;
+}
 .btn {
   display: inline-block;
   text-align: center;
@@ -12,13 +19,13 @@ a:visited {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem;
 }
 .btn-primary {
   color: #999;
   background-color: #ffdd44;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   border-color: #999;
 }

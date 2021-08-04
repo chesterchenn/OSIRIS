@@ -1,5 +1,19 @@
 @import url(../index.css);
 
+.flex {
+  display: flex;
+  margin: 8px;
+}
+
+.flex > label {
+  text-align: right;
+  flex-basis: 60px;
+}
+
+.flex > input {
+  flex-basis: 180px;
+}
+
 .showColor {
   width: 140px;
   height: 140px;
