@@ -3,15 +3,19 @@
 .flex {
   display: flex;
   margin: 8px;
+  align-content: center;
 }
 
 .flex > label {
   text-align: right;
   flex-basis: 60px;
+  line-height: 1.5;
+  padding-right: 8px;
 }
 
 .flex > input {
-  flex-basis: 180px;
+  flex-basis: 160px;
+  line-height: 1.5;
 }
 
 .showColor {

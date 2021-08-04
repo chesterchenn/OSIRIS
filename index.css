@@ -7,6 +7,8 @@ a:visited {
 }
 input {
   border: 1px solid #999;
+  font-size: 0.8rem;
+  border-radius: 0.1rem;
 }
 input:hover, input:focus {
   border: 1px solid #88bbff;
