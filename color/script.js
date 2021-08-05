@@ -1,11 +1,11 @@
 const btn = document.getElementById("btn");
 
 function getVal(id) {
-  const ele = document.getElementById(id);
-  return parseInt(ele.value).toString(16).padStart(2, "0");
+  const val = document.forms[0][id]['value'];
+  return parseInt(val).toString(16).padStart(2, "0");
 }
 
-function handler() {
+function handleSubmit() {
   const resR = getVal("r");
   const resG = getVal("g");
   const resB = getVal("b");
@@ -20,4 +20,3 @@ function handler() {
   res.innerHTML = ele;
 }
 
-btn.addEventListener("click", handler, false);

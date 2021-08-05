@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title></title>
-    <link rel="stylesheet" href="./style.css?v=0804">
+    <link rel="stylesheet" href="./style.css?v=0804" />
   </head>
   <body>
     <ul>
@@ -12,17 +12,25 @@
       </li>
     </ul>
 
-    <div class="flex">
-      <label for="r">R </label><input id="r" placeholder="请输入R" />
-    </div>
-    <div class="flex">
-      <label for="g">G </label><input id="g" placeholder="请输入G" />
-    </div>
-    <div class="flex">
-      <label for="b">B </label><input id="b" placeholder="请输入B" />
-    </div>
+    <form action="#" }>
+      <div class="flex">
+        <label for="r">R </label><input name="r" id="r" placeholder="请输入R" />
+      </div>
+      <div class="flex">
+        <label for="g">G </label><input name="g" id="g" placeholder="请输入G" />
+      </div>
+      <div class="flex">
+        <label for="b">B </label><input name="b" id="b" placeholder="请输入B" />
+      </div>
 
-    <a id="btn" href="javascript:;" class="btn btn-primary">转换</a>
+      <a
+        href="javascript:;"
+        class="btn btn-primary"
+        onclick="return handleSubmit()"
+        >转换</a
+      >
+      <input href="javascript:;" class="btn btn-primary" type="reset" value="重置"></input>
+    </form>
 
     <div id="res"></div>
     <script src="./script.js"></script>
