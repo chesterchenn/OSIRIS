@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title></title>
-    <link rel="stylesheet" href="./style.css?v=0805" />
+    <link rel="stylesheet" href="./style.css?v=0806" />
   </head>
   <body>
     <ul>
@@ -12,6 +12,7 @@
       </li>
     </ul>
 
+    <div class="flex" style={}>
     <form action="#"}>
       <div class="flex">
         <label for="r">R </label><input maxlength="3" name="r" id="r" placeholder="请输入R" />
@@ -32,7 +33,22 @@
       <input href="javascript:;" class="btn btn-primary" type="reset" value="重置"></input>
     </form>
 
+    <form action="#"}>
+      <div class="flex">
+        <label for="hex">16进制 </label><input maxlength="7" name="hex" placeholder="请输入16进制" />
+      </div>
+
+      <a
+        href="javascript:;"
+        class="btn btn-primary"
+        onclick="return handleHex()"
+        >转换</a
+      >
+      <input href="javascript:;" class="btn btn-primary" type="reset" value="重置"></input>
+    </form>
+
+    </div>
     <div id="res"></div>
-    <script src="./script.js?v=0806"></script>
+    <script src="./script.js?v=0806-01"></script>
   </body>
 </html>

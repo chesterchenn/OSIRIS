@@ -26,6 +26,25 @@ function handleSubmit() {
     <div class="showColor" style="background-color: ${bgColor}"></div>
     `;
 
-  const ele = msg ?? renderEle;
-  res.innerHTML = ele;
+  res.innerHTML = msg ?? renderEle;
+}
+
+function handleHex() {
+  let val = document.forms[1]["hex"]["value"];
+  let arr = [];
+  if (val.startsWith("#")) {
+    val = val.slice(1);
+  }
+
+  for (let i = 0; i < 3; i++) {
+    const v = val.slice(i * 2, (i + 1) * 2);
+    const t = parseInt(v, 16).toString(10);
+    arr.push(t);
+  }
+  const bgColor = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
+  const renderEle = `
+    <div>${bgColor}</div>
+    <div class="showColor" style="background-color: ${bgColor}"></div>
+    `;
+  res.innerHTML = renderEle;
 }

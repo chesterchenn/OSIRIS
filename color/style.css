@@ -6,9 +6,12 @@
   align-content: center;
 }
 
+.flex > form {
+  flex-grow: 1;
+}
+
 .flex > label {
   text-align: right;
-  flex-basis: 60px;
   line-height: 1.5;
   padding-right: 8px;
 }
@@ -22,3 +25,4 @@
   width: 140px;
   height: 140px;
 }
+
