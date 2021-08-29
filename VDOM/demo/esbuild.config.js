@@ -10,6 +10,7 @@ esbuild
       entryPoints: ["./index"],
       outfile: "./out.js",
       bundle: true,
+      format: 'esm',
       plugins: [
         alias({
           vdom: require("path").join(__dirname, "..", "src", "index.js"),

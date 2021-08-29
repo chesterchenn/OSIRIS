@@ -3,40 +3,38 @@
  */
 import { trimNode } from "./utils";
 import { NODE_TYPE } from "./constants";
+const { ELEMENT_NODE, TEXT_NODE } = NODE_TYPE;
 
-export function recursion(node, obj) {
-  console.log('sssssssssss')
-  const { ELEMENT_NODE, TEXT_NODE  } = NODE_TYPE;
-  var flag = true;
+export function recursion(node) {
+  let obj = {};
+  if (node && node.nodeType === TEXT_NODE) {
+    const val = trimNode(node);
+    if (val) {
+      obj = Object.assign({}, obj, {
+        child: [val],
+      });
+    }
+  }
   if (node && node.nodeType === ELEMENT_NODE) {
-    console.log(node.tagName.toLowerCase());
     obj = Object.assign({}, obj, {
       type: node.tagName.toLowerCase(),
     });
   }
-  if (node && node.nodeType === TEXT_NODE) {
-    const val = trimNode(node);
-    if (val) {
-      console.log(val);
-    }
-  }
-  var childNodes = node.childNodes;
-  if (childNodes.length > 0) {
-    flag = false;
-  }
+  let childNodes = node.childNodes;
   for (var i = 0; i < childNodes.length; i++) {
     var item = childNodes[i];
-    if (
-      item.nodeType === ELEMENT_NODE ||
-      item.nodeType === TEXT_NODE
-    ) {
-      return traversal(item, obj);
+    if (item.nodeType === ELEMENT_NODE || item.nodeType === TEXT_NODE) {
+      const result = recursion(item);
+      obj = Object.assign(
+        {},
+        obj,
+        result && {
+          child: obj.child ? obj.child.concat(result) : [result],
+        }
+      );
     }
-
   }
-  if (flag) {
+  if (Object.keys(obj).length !== 0) {
     return obj;
   }
 }
-
-
