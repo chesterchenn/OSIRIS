@@ -16,8 +16,14 @@ export function recursion(node) {
     }
   }
   if (node && node.nodeType === ELEMENT_NODE) {
+    let props = {}
+    for (i = 0; i < node.attributes.length; i++) {
+      props[node.attributes[i].name] = node.attributes[i].value;
+    }
     obj = Object.assign({}, obj, {
       type: node.tagName.toLowerCase(),
+    }, Object.keys(props).length !== 0 && {
+      props: props
     });
   }
   let childNodes = node.childNodes;
