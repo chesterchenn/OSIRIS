@@ -9,3 +9,4 @@
 ## 参考链接
 
 - [github: preactjs](https://github.com/preactjs/preact)
+- [你不知道的Virtual DOM](https://segmentfault.com/a/1190000016129036)
