@@ -36,8 +36,3 @@ const createTextElement = function (text) {
 //   return document.createTextNode(text);
 // }
 
-const setProps = function (element, props) {
-  for (key in props) {
-    element.setAttribute(key, props[key]);
-  }
-};
