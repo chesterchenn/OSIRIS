@@ -20,8 +20,3 @@ const createTextElement = function (text) {
   };
 };
 
-// 自定义的 createTextElement
-// const createTextElement = function (text) {
-//   return document.createTextNode(text);
-// }
-

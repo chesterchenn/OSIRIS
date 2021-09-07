@@ -11,6 +11,8 @@ esbuild
       outfile: "./out.js",
       bundle: true,
       format: 'esm',
+      jsxFactory: 'h',
+      loader: {'.js': 'jsx'},
       plugins: [
         alias({
           vdom: require("path").join(__dirname, "..", "src", "index.js"),
