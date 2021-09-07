@@ -10,37 +10,33 @@ export function recursion(node) {
   if (node && node.nodeType === TEXT_NODE) {
     const val = trimNode(node);
     if (val) {
-      obj = Object.assign({}, obj, {
-        children: [val],
+      obj = Object.assign(obj, {
+        children: val,
       });
     }
   }
   if (node && node.nodeType === ELEMENT_NODE) {
-    let props = {}
-    for (i = 0; i < node.attributes.length; i++) {
-      props[node.attributes[i].name] = node.attributes[i].value;
-    }
-    obj = Object.assign({}, obj, {
-      type: node.tagName.toLowerCase(),
-    }, Object.keys(props).length !== 0 && {
-      props: props
+    let props = {};
+    let children = [];
+    Array.from(node.attributes).forEach((n) => (props[n.name] = n.value));
+    node.childNodes.forEach((child) => {
+      if (child.nodeType === ELEMENT_NODE || child.nodeType === TEXT_NODE) {
+        children = children.concat(recursion(child));
+      }
+      props.children = children;
     });
-  }
-  let childNodes = node.childNodes;
-  for (var i = 0; i < childNodes.length; i++) {
-    var item = childNodes[i];
-    if (item.nodeType === ELEMENT_NODE || item.nodeType === TEXT_NODE) {
-      const result = recursion(item);
-      obj = Object.assign(
-        {},
-        obj,
-        result && {
-          children: obj.children ? obj.children.concat(result) : [result],
-        }
-      );
-    }
+    obj = Object.assign(
+      obj,
+      {
+        type: node.tagName.toLowerCase(),
+      },
+      Object.keys(props).length !== 0 && {
+        props: props,
+      }
+    );
   }
   if (Object.keys(obj).length !== 0) {
     return obj;
   }
+  return [];
 }
