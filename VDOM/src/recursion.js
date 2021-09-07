@@ -11,7 +11,7 @@ export function recursion(node) {
     const val = trimNode(node);
     if (val) {
       obj = Object.assign({}, obj, {
-        child: [val],
+        children: [val],
       });
     }
   }
@@ -35,7 +35,7 @@ export function recursion(node) {
         {},
         obj,
         result && {
-          child: obj.child ? obj.child.concat(result) : [result],
+          children: obj.children ? obj.children.concat(result) : [result],
         }
       );
     }

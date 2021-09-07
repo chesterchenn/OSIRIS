@@ -1,11 +1,8 @@
-function render(element, container) {
+export function render(element, container) {
   const dom =
-    document.type === "TEXT_ELEMENT"
+    element.type === "TEXT_ELEMENT"
       ? document.createTextNode("")
       : document.createElement(element.type);
-
-  // 递归对每个 child 进行渲染操作
-  element.props.children.forEach((child) => render(child, dom));
 
   // 将 props 分配给对应的节点
   const isProperty = (key) => key !== "children";
@@ -15,10 +12,13 @@ function render(element, container) {
       dom[name] = element.props[name];
     });
 
+  // 递归对每个 child 进行渲染操作
+  element.props.children.forEach((child) => render(child, dom));
+
   container.appendChild(dom);
 }
 
-const setProps = function (element, props) {
+export const setProps = function (element, props) {
   for (key in props) {
     element.setAttribute(key, props[key]);
   }

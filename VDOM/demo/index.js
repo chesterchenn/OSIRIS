@@ -1,8 +1,10 @@
-console.log('esbuild start...')
-import { recursion, createElement } from 'vdom';
+console.log("esbuild start...");
+import { recursion, createElement, render } from "vdom";
 const root = document.getElementById("root");
 const obj = recursion(root, {});
-const hello = createElement('div', {id: 1}, ['Hello'] )
-root.appendChild(hello)
 console.log(obj);
 
+const renderRoot = document.getElementById("renderRoot");
+const hello = createElement("div", { id: 1 }, "Hello, World");
+console.log(hello)
+render(hello, renderRoot);
