@@ -7,8 +7,8 @@ esbuild
       servedir: ".",
     },
     {
-      entryPoints: ["./index"],
-      outfile: "./out.js",
+      entryPoints: ["./index", "./startRecursion"],
+      outdir: 'out',
       bundle: true,
       format: 'esm',
       jsxFactory: 'h',

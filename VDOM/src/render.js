@@ -6,7 +6,6 @@ export function render(element, container) {
 
   // 将 props 分配给对应的节点
   const isProperty = (key) => key !== "children";
-  console.log(element)
   Object.keys(element.props)
     .filter(isProperty)
     .forEach((name) => {

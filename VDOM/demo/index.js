@@ -1,32 +1,38 @@
-console.log("esbuild start...");
-import { recursion, createElement, createElement as h, render } from "vdom";
-const root = document.getElementById("root");
-const obj = recursion(root, {});
-console.log(obj);
+import { createElement, createElement as h, render } from "vdom";
 
 const renderRoot = document.getElementById("renderRoot");
+const renderRoot1 = document.getElementById("renderRoot1");
 // const hello = createElement("div", { id: 1 }, "Hello, World");
 // render(hello, renderRoot);
 
 let state = { num: 5 };
-let timer;
-let preVDom;
 
 /** @jsx createElement */
 const element = (
   <div>
     Hello World
     <ul>
-      {[...Array(state.num).keys()].map((i) => (
-        <li id={i} class={`li-${i}`}>
-          第{i * state.num}
-        </li>
-      ))}
+      <li>1234</li>
     </ul>
   </div>
 );
 
+const ele = (
+  <div>
+    <ul>
+      {[1].forEach(i => (
+        <li>{i}</li>
+      ))}
+    </ul>
+  </div>
+);
 console.log(element);
+console.log(ele);
+render(element, renderRoot);
+render(ele, renderRoot1);
+
+let timer;
+let preVDom;
 
 function tick(element) {
   if (state.num > 20) {
@@ -34,5 +40,3 @@ function tick(element) {
     return;
   }
 }
-
-render(element, renderRoot);
