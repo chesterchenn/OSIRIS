@@ -20,7 +20,7 @@ const element = (
 const ele = (
   <div>
     <ul>
-      {[1].forEach(i => (
+      {[1, 2, 3].map(i => (
         <li>{i}</li>
       ))}
     </ul>
