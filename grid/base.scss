@@ -1,0 +1,62 @@
+$spacing: 10px;
+$large-span: 40px;
+$small-span: 32px;
+
+@function calLarge($a, $b) {
+  @return $large-span * $a + $spacing * $b;
+}
+
+@function calSmall($a, $b) {
+  @return $small-span * $a + $spacing * $b;
+}
+
+@mixin wrapper {
+  @media (min-width: 1440px) {
+    width: calLarge(24, 23);
+  }
+
+  @media (max-width: 1440px) {
+    width: calSmall(24, 23);
+  }
+}
+
+@mixin quarter-sider {
+  @media (min-width: 1440px) {
+    width: calLarge(6, 5);
+  }
+
+  @media (max-width: 1440px) {
+    width: calSmall(6, 5);
+  }
+}
+
+@mixin quarter-content {
+  @media (min-width: 1440px) {
+    width: calLarge(18, 17);
+  }
+
+  @media (max-width: 1440px) {
+    width: calSmall(18, 17);
+  }
+}
+
+@mixin third-sider {
+  @media (min-width: 1440px) {
+    width: calLarge(8, 7)
+  }
+
+  @media (max-width: 1440px) {
+    width: calSmall(8, 7);
+  }
+}
+
+@mixin third-content {
+  @media (min-width: 1440px) {
+    width: calLarge(16, 15)
+  }
+
+  @media (max-width: 1440px) {
+    width: calSmall(16, 15);
+  }
+}
+
