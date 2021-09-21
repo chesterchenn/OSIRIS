@@ -25,20 +25,20 @@ function view() {
   );
 }
 
-function tick(element) {
+function tick() {
   if (state.num > 20) {
     clearTimeout(timer);
     return;
   }
   const newVDOM = view();
 
-  const pathcObj = diff(preVDom, newVDOM);
+  // render(newVDOM, renderRoot)
+  const patchObj = diff(preVDom, newVDOM);
+  console.log(patchObj)
 
   preVDom = newVDOM;
 
-  patch(element, pathcObj);
-
-  console.log(pathcObj);
+  patch(renderRoot, patchObj);
 }
 
 function invokedRender() {
@@ -49,7 +49,7 @@ function invokedRender() {
 
   timer = setInterval(() => {
     state.num += 1;
-    tick(renderRoot);
+    tick();
   }, 500);
 }
 
@@ -62,10 +62,11 @@ function patch(parent, patchObj, index = 0) {
   }
 
   if (patchObj.type === nodePatchTypes.CREATE) {
-    return render(parent, pathcObj.vdom);
+    return render(patchObj.vdom, parent);
   }
 
-  const element = parent.childNode[index];
+  if (!parent) return
+  const element = parent.childNodes[index];
 
   // 删除元素
   if (patchObj.type === nodePatchTypes.REMOVE) {
@@ -79,12 +80,15 @@ function patch(parent, patchObj, index = 0) {
 
   // 更新元素
   if (patchObj.type === nodePatchTypes.UPDATE) {
-    const { props, children } = patchObj;
+    const { children } = patchObj.props;
 
+    const props = children.props;
     patchProps(element, props);
 
-    children.forEach((patchObj, i) => {
-      patch(element, patchObj, i);
+    children.forEach((p, i) => {
+      if (!p) return;
+
+      patch(element, p, i);
     });
   }
 }
