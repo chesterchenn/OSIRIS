@@ -1,21 +1,21 @@
-const esbuild = require("esbuild");
-const alias = require("esbuild-plugin-alias");
+const esbuild = require('esbuild');
+const alias = require('esbuild-plugin-alias');
 
 esbuild
   .serve(
     {
-      servedir: ".",
+      servedir: '.',
     },
     {
-      entryPoints: ["./index", "./startRecursion"],
+      entryPoints: ['./createElement', './startRecursion'],
       outdir: 'out',
       bundle: true,
       format: 'esm',
       jsxFactory: 'h',
-      loader: {'.js': 'jsx'},
+      loader: { '.js': 'jsx' },
       plugins: [
         alias({
-          vdom: require("path").join(__dirname, "..", "src", "index.js"),
+          vdom: require('path').join(__dirname, '..', 'src', 'index.js'),
         }),
       ],
     }
