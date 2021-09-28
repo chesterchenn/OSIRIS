@@ -1,0 +1,25 @@
+{
+  "name": "osiris",
+  "version": "0.1.0",
+  "description": "Demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chesterchenn/osiris.git"
+  },
+  "keywords": [
+    "demo"
+  ],
+  "author": "chesterchenn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chesterchenn/osiris/issues"
+  },
+  "homepage": "https://github.com/chesterchenn/osiris#readme",
+  "dependencies": {
+    "esbuild": "^0.13.2"
+  }
+}
