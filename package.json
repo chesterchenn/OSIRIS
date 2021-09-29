@@ -4,7 +4,7 @@
   "description": "Demo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "ts-node esbuild.config.ts"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/chesterchenn/osiris#readme",
   "dependencies": {
-    "esbuild": "^0.13.2"
+    "esbuild": "^0.13.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.1"
   }
 }
