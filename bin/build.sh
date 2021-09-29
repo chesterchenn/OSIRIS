@@ -12,8 +12,6 @@ echo "部署分支：${remote_branch}"
 mkdir $BUILD_DIR
 cd $BUILD_DIR
 
-echo "Clone ${remote_branch} from repo ${REMOTE_REPO}"
-git clone --branch $remote_branch $REMOTE_REPO 
 LOCAL_BRANCH=$remote_branch
 
 echo "本地分支是：${LOCAL_BRANCH}"
