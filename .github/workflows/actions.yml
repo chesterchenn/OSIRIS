@@ -1,0 +1,10 @@
+name: GitHub Action
+on: [push]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout out code
+        uses: actions/checkout@v2
+      - run: yarn
+
