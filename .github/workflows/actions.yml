@@ -12,6 +12,9 @@ jobs:
       - name: checkout out code
         uses: actions/checkout@v2
 
+      - name: install dependency
+        run: yarn
+
       - name: run bin/build.sh
         run: sh bin/build.sh
 
