@@ -23,7 +23,7 @@ echo "构建完成"
 
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-git add .
+git add . -f
 git commit -m "build from Action ${GITHUB_SHA}"
 git push $REMOTE_REPO $LOCAL_BRANCH:$remote_branch
 
