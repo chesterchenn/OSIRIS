@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "Starting build to gh-pages"
 
@@ -9,9 +9,6 @@ echo "构建目录文件夹: ${BUILD_DIR}"
 remote_branch="gh-pages"
 echo "部署分支：${remote_branch}"
 
-mkdir $BUILD_DIR
-cd $BUILD_DIR
-
 LOCAL_BRANCH=$remote_branch
 
 echo "本地分支是：${LOCAL_BRANCH}"
@@ -19,9 +16,16 @@ echo "本地分支是：${LOCAL_BRANCH}"
 npm run build
 echo "构建完成"
 
+rm -rf .git
+rm .gitignore
+
+cd $BUILD_DIR
+
+git init
+
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-git add . -f
+git add .
 git commit -m "build from Action ${GITHUB_SHA}"
 git push $REMOTE_REPO $remote_branch
 
