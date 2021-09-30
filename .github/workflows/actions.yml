@@ -17,4 +17,6 @@ jobs:
 
       - name: run bin/build.sh
         run: sh bin/build.sh
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 

@@ -2,7 +2,7 @@
 
 echo "Starting build to gh-pages"
 
-REMOTE_REPO="https://${GITHUB_ACTOR}@github.com/${GITHUB_REPOSITORY}.git"
+REMOTE_REPO="https://${GITHUB_ACTOR}:${INPUT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 echo "远程仓库: ${REMOTE_REPO}"
 BUILD_DIR="${GITHUB_WORKSPACE}/build"
 echo "构建目录文件夹: ${BUILD_DIR}"
@@ -27,5 +27,5 @@ git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 git add .
 git commit -m "build from Action ${GITHUB_SHA}"
-git push $REMOTE_REPO $remote_branch
+git push $REMOTE_REPO $LOCAL_BRANCH:$remote_branch
 
