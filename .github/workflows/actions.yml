@@ -16,7 +16,4 @@ jobs:
         run: yarn
 
       - name: run bin/build.sh
-        run: sh bin/build.sh
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
+        run: bash bin/build.sh ${{ secrets.GITHUB_TOKEN }}
