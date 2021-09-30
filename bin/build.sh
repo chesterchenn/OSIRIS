@@ -21,7 +21,7 @@ rm .gitignore
 
 cd $BUILD_DIR
 
-git init
+git init -b $LOCAL_BRANCH
 
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
