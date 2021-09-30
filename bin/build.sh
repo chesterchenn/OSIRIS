@@ -2,10 +2,7 @@
 
 echo "Starting build to gh-pages"
 
-echo $0 
-echo $1
-
-REMOTE_REPO="https://${GITHUB_ACTOR}:${INPUT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+REMOTE_REPO="https://${GITHUB_ACTOR}:$0@github.com/${GITHUB_REPOSITORY}.git"
 echo "远程仓库: ${REMOTE_REPO}"
 BUILD_DIR="${GITHUB_WORKSPACE}/build"
 echo "构建目录文件夹: ${BUILD_DIR}"
