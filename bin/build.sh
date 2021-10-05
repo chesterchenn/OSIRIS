@@ -16,6 +16,8 @@ echo "本地分支是：${LOCAL_BRANCH}"
 npm run build
 echo "构建完成"
 
+cp ${GITHUB_WORKSPACE}/index.html $BUILD_DIR/index.html
+
 rm -rf .git
 rm .gitignore
 
