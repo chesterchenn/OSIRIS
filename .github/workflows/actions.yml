@@ -1,5 +1,10 @@
 name: GitHub Action
-on: [push]
+on:
+  push:
+    paths-ignore:
+      - 'README.md'
+      - 'esbuild.serve.config.ts'
+      - '.gitignore'
 jobs:
   deploy:
     runs-on: ubuntu-latest
