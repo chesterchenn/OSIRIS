@@ -6,6 +6,7 @@ require('esbuild')
     bundle: true,
     outdir: 'build',
     tsconfig: 'tsconfig.json',
+    format: 'esm',
     metafile: true,
     plugins: [
       htmlPlugin({

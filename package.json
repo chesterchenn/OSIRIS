@@ -4,6 +4,7 @@
   "description": "Demo",
   "main": "index.js",
   "scripts": {
+    "start": "ts-node esbuild.serve.config.ts",
     "build": "ts-node esbuild.config.ts"
   },
   "repository": {
@@ -20,12 +21,12 @@
   },
   "homepage": "https://github.com/chesterchenn/osiris#readme",
   "dependencies": {
-    "esbuild": "^0.13.2",
+    "esbuild": "^0.13.3",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3"
   },
   "devDependencies": {
     "@craftamap/esbuild-plugin-html": "^0.1.2",
-    "@types/node": "^16.10.1"
+    "@types/node": "^16.10.2"
   }
 }
