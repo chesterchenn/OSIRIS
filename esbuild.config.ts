@@ -5,6 +5,5 @@ require('esbuild')
     outdir: 'build',
     tsconfig: 'tsconfig.json',
     format: 'esm',
-    loader: 'jsx',
   })
   .catch(() => process.exit(1));

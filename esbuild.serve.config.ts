@@ -12,7 +12,6 @@ require('esbuild')
       outdir: '.',
       tsconfig: 'tsconfig.json',
       format: 'esm',
-      metafile: true,
     }
   )
   .then((server: ServeResult) => {
