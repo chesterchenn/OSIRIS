@@ -1,4 +1,5 @@
 import { ServeResult } from 'esbuild';
+import sassPlugin from 'esbuild-plugin-sass';
 
 require('esbuild')
   .serve(
@@ -12,6 +13,7 @@ require('esbuild')
       outdir: '.',
       tsconfig: 'tsconfig.json',
       format: 'esm',
+      plugins: [sassPlugin()],
     }
   )
   .then((server: ServeResult) => {
