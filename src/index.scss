@@ -1,18 +1,15 @@
-a {
-  color: #999;
-  text-decoration: none;
-}
-a:visited {
-  color: #999;
+.container {
+  display: flex;
 }
 input {
   border: 1px solid #999;
   font-size: 0.8rem;
   border-radius: 0.1rem;
-}
-input:hover, input:focus {
-  border: 1px solid #88bbff;
-  outline: 0;
+  &:hover,
+  &:focus {
+    border: 1px solid #88bbff;
+    outline: 0;
+  }
 }
 .btn {
   display: inline-block;
@@ -32,26 +29,5 @@ input:hover, input:focus {
   border-color: #999;
 }
 .btn-primary:hover {
-  border-color: #999
+  border-color: #999;
 }
-.container {
-  display: flex;
-}
-.card {
-  width: 120px;
-  height: 180px;
-  border: 1px solid #999;
-  text-align: center;
-  border-radius: 4px;
-  margin: 2px 8px;
-}
-.card-content {
-  height: 120px;
-}
-.card-footer {
-  background-color: #ffdd44;
-  height: 60px;
-  border-radius: 0 0 4px 4px;
-  line-height: 60px;
-}
-
