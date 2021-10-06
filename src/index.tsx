@@ -1,13 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Card from './components/card';
 import './index.scss';
+import App from './App';
 
 const root = document.getElementById('root');
-const ele = (
-  <div className='container'>
-    <Card title='颜色转换' link='' />
-    <Card title='web216颜色' link='' />
-  </div>
-);
-ReactDOM.render(ele, root);
+ReactDOM.render(<App />, root);

@@ -2,8 +2,7 @@ import React from 'react';
 import './styles.scss';
 
 interface IProps {
-  title: string;
-  link?: string;
+  children?: React.ReactNode;
 }
 
 export default function (props: IProps) {
@@ -11,7 +10,7 @@ export default function (props: IProps) {
     <div className='card'>
       <div className='card__content'></div>
       <div className='card__footer'>
-        <a href={props.link}>{props.title}</a>
+        {props.children}
       </div>
     </div>
   );
