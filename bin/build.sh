@@ -4,7 +4,7 @@ echo "Starting build to gh-pages"
 
 REMOTE_REPO="https://${GITHUB_ACTOR}:$1@github.com/${GITHUB_REPOSITORY}.git"
 echo "远程仓库: ${REMOTE_REPO}"
-BUILD_DIR="${GITHUB_WORKSPACE}/.next"
+BUILD_DIR="${GITHUB_WORKSPACE}/out"
 echo "构建目录文件夹: ${BUILD_DIR}"
 remote_branch="gh-pages"
 echo "部署分支：${remote_branch}"
