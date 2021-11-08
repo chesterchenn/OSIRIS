@@ -19,10 +19,6 @@ echo "构建完成"
 rm -rf .git
 rm .gitignore
 
-mkdir -p $BUILD_DIR
-
-cp ${GITHUB_WORKSPACE}/index.html $BUILD_DIR/index.html
-
 cd $BUILD_DIR
 
 git init -b $LOCAL_BRANCH
