@@ -22,3 +22,5 @@ jobs:
 
       - name: run bin/build.sh
         run: bash bin/build.sh ${{ secrets.GITHUB_TOKEN }}
+        with:
+          build_dir: .next
