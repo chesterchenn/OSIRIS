@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      BUILD_DIR: .next
     steps:
       - name: Setup Node.js environment
         uses: actions/setup-node@v1.4.4
@@ -22,5 +24,3 @@ jobs:
 
       - name: run bin/build.sh
         run: bash bin/build.sh ${{ secrets.GITHUB_TOKEN }}
-        with:
-          build_dir: .next
