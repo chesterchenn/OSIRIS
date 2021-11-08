@@ -8,8 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      BUILD_DIR: .next
     steps:
       - name: Setup Node.js environment
         uses: actions/setup-node@v1.4.4
