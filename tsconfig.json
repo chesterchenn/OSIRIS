@@ -17,8 +17,7 @@
     "noEmit": true,
     "incremental": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "baseUrl": "/osiris"
+    "isolatedModules": true
   },
   "include": [
     "next-env.d.ts",
