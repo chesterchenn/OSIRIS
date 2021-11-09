@@ -1,4 +1,4 @@
 module.exports = {
   basePath: '/osiris',
-  assetPrefix: '/osiris/',
+  assetsPrefix: '/osiris/',
 };
