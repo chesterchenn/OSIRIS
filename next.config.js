@@ -1,4 +1,6 @@
+const isProd = process.env.NODE_ENV === 'production';
+
 module.exports = {
   basePath: '/osiris',
-  assetPrefix: '/osiris',
+  assetPrefix: isProd ? '/osiris/' : '',
 };
