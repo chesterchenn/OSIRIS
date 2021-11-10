@@ -10,6 +10,9 @@ export default function Home() {
       <h2>
         <Link href='/web216'>Web 216</Link>
       </h2>
+      <h2>
+        <Link href='/color'>Color</Link>
+      </h2>
     </>
   );
 }
