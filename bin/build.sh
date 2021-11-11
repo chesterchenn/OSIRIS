@@ -14,8 +14,13 @@ echo "部署分支：${remote_branch}"
 LOCAL_BRANCH=$remote_branch
 echo "本地分支是：${LOCAL_BRANCH}"
 
-npm run build
-echo "构建完成"
+
+if npm run build ; then
+  echo "构建完成"
+else
+  echo "构建失败"
+  exit 1
+fi
 
 touch $BUILD_DIR/.nojekyll
 
