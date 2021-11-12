@@ -1,6 +1,7 @@
 import React, { FormEvent, useRef, useState } from 'react';
 import styles from './color.module.scss';
 import { useForm } from 'react-hook-form';
+import BackToHome from 'components/backToHome'
 
 function getVal(val: string) {
   return parseInt(val).toString(16).padStart(2, '0');
@@ -43,6 +44,7 @@ export default function () {
 
   return (
     <div>
+      <BackToHome />
       <div className={styles.flex}>
         <form onSubmit={onSubmit}>
           <div className={styles.flex}>

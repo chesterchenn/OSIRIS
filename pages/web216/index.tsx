@@ -1,5 +1,6 @@
 import styles from './web.module.scss';
 import { Fragment } from 'react';
+import BackToHome from 'components/backToHome'
 
 function createElement(bg: string) {
   const element = (
@@ -15,6 +16,7 @@ export default function () {
   const colors: string[] = ['00', '33', '66', '99', 'cc', 'ff'];
   return (
     <>
+      <BackToHome />
       <h2>Hello, Web216</h2>
       <div className={styles.flex}>
         {colors.map((r: string) =>
