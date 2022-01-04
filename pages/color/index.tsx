@@ -1,7 +1,8 @@
 import React, { FormEvent, useRef, useState } from 'react';
 import styles from './color.module.scss';
 import { useForm } from 'react-hook-form';
-import BackToHome from 'components/backToHome'
+import BackToHome from 'components/backToHome';
+import Input from 'components/input';
 
 function getVal(val: string) {
   return parseInt(val).toString(16).padStart(2, '0');
@@ -49,15 +50,15 @@ export default function () {
         <form onSubmit={onSubmit}>
           <div className={styles.flex}>
             <label>R </label>
-            <input {...register('r')} placeholder='请输入R' />
+            <Input {...register('r')} placeholder='请输入R' />
           </div>
           <div className={styles.flex}>
             <label>G </label>
-            <input {...register('g')} placeholder='请输入G' />
+            <Input {...register('g')} placeholder='请输入G' />
           </div>
           <div className={styles.flex}>
             <label>B </label>
-            <input {...register('b')} placeholder='请输入B' />
+            <Input {...register('b')} placeholder='请输入B' />
           </div>
 
           <input type='submit' value='转换' />
@@ -67,7 +68,7 @@ export default function () {
         <form onSubmit={onHexSubmit}>
           <div className='flex'>
             <label>16进制 </label>
-            <input {...register('hex')} placeholder='请输入16进制' />
+            <Input {...register('hex')} placeholder='请输入16进制' />
           </div>
           <input type='submit' value='转换' />
           <input type='reset' value='重置'></input>
