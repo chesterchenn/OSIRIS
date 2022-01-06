@@ -1,8 +1,9 @@
-import React, { FormEvent, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './color.module.scss';
 import { useForm } from 'react-hook-form';
 import BackToHome from 'components/backToHome';
 import Input from 'components/input';
+import Button from 'components/button';
 
 function getVal(val: string) {
   return parseInt(val).toString(16).padStart(2, '0');
@@ -61,8 +62,8 @@ export default function () {
             <Input {...register('b')} placeholder='请输入B' />
           </div>
 
-          <input type='submit' value='转换' />
-          <input type='reset' value='重置'></input>
+          <Button type='submit'>转换</Button>
+          <Button type='reset'>重置</Button>
         </form>
 
         <form onSubmit={onHexSubmit}>
@@ -70,15 +71,15 @@ export default function () {
             <label>16进制 </label>
             <Input {...register('hex')} placeholder='请输入16进制' />
           </div>
-          <input type='submit' value='转换' />
-          <input type='reset' value='重置'></input>
+          <Button type='submit'>转换</Button>
+          <Button type='reset'>重置</Button>
         </form>
         <div>{bgColor}</div>
-        <div
-          className='showColor'
-          style={{ width: 200, height: 200, backgroundColor: bgColor }}
-        ></div>
       </div>
+      <div
+        className='showColor'
+        style={{ width: 200, height: 200, backgroundColor: bgColor }}
+      ></div>
     </div>
   );
 }

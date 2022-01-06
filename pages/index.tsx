@@ -8,10 +8,10 @@ export default function Home() {
         <title>Home</title>
       </Head>
       <h2>
-        <Link href='/web216'>Web 216</Link>
+        <Link href='/color'>Color</Link>
       </h2>
       <h2>
-        <Link href='/color'>Color</Link>
+        <Link href='/web216'>Web 216</Link>
       </h2>
     </>
   );
