@@ -74,8 +74,8 @@ export default function () {
           <Button type='submit'>转换</Button>
           <Button type='reset'>重置</Button>
         </form>
-        <div>{bgColor}</div>
       </div>
+      <div>{bgColor}</div>
       <div
         className='showColor'
         style={{ width: 200, height: 200, backgroundColor: bgColor }}
