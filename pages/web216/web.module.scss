@@ -2,16 +2,20 @@
   color: red;
 }
 .ele {
-  width: 80%;
   height: 40px;
+  line-height: 40px;
+  padding: 0 5px;
+  flex-basis: 170px;
 }
 
 .flex {
   display: flex;
   flex-wrap: wrap;
+  min-width: 1080px;
+  width: 1080px;
+  margin: 0 auto;
 }
 
-.flex > div {
-  flex-basis: 8%;
+.whiteText {
+  color: #fff;
 }
-
