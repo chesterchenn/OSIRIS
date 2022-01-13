@@ -1,23 +1,8 @@
 import Link from 'next/link';
 import Head from 'next/head';
-
-interface Nav {
-  title: string;
-  link: string;
-}
+import { navs } from './config';
 
 export default function Home() {
-  const navs: Nav[] = [
-    {
-      title: 'Color',
-      link: '/color',
-    },
-    {
-      title: 'Web 216',
-      link: '/web216',
-    },
-  ];
-
   return (
     <>
       <Head>

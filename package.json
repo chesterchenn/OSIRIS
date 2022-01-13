@@ -4,8 +4,7 @@
   "description": "Demo",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "start": "next start",
+    "start": "next dev",
     "build": "next build && next export"
   },
   "repository": {
