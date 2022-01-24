@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Head from 'next/head';
+import Card from 'components/card';
 import { navs } from './config';
 
 export default function Home() {
@@ -9,9 +10,9 @@ export default function Home() {
         <title>Home</title>
       </Head>
       {navs.map((n) => (
-        <h2 key={n.link}>
+        <Card key={n.link}>
           <Link href={n.link}>{n.title}</Link>
-        </h2>
+        </Card>
       ))}
     </>
   );
