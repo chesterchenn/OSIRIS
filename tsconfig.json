@@ -8,13 +8,10 @@
     "strict": true,
     "skipLibCheck": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "noEmit": true,
+    "noImplicitAny": true,
     "incremental": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -23,12 +20,6 @@
       "components/*": ["components/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
