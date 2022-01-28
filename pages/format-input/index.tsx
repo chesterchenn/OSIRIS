@@ -1,4 +1,4 @@
-import BackToHome from 'components/backToHome';
+import BackToHome from 'components/back-to-home';
 import Input from 'components/input';
 import { ChangeEvent, useState } from 'react';
 

@@ -1,6 +1,6 @@
 import styles from './web.module.scss';
 import { Fragment } from 'react';
-import BackToHome from 'components/backToHome';
+import BackToHome from 'components/back-to-home';
 import clsx from 'clsx';
 
 function createElement(bg: string[]) {

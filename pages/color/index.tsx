@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './color.module.scss';
 import { useForm } from 'react-hook-form';
-import BackToHome from 'components/backToHome';
+import BackToHome from 'components/back-to-home';
 import Input from 'components/input';
 import Button from 'components/button';
 
