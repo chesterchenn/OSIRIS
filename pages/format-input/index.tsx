@@ -1,6 +1,6 @@
+import React, { ChangeEvent, useState } from 'react';
 import BackToHome from 'components/back-to-home';
 import Input from 'components/input';
-import { ChangeEvent, useState } from 'react';
 
 export default function () {
   const [val, setVal] = useState<string>('');
@@ -16,15 +16,15 @@ export default function () {
     const tail = String(Math.abs(num)).slice(i.length);
     const j = i.length > 3 ? i.length % 3 : 0;
     return (
-      negative +
-      (j ? i.substr(0, j) + qty : '') +
-      i.substr(j).replace(/(\d{3})(?=\d)/g, `$1${qty}`) +
-      (precise ? Number(tail).toFixed(precise).slice(1) : tail)
+      negative
+      + (j ? i.substr(0, j) + qty : '')
+      + i.substr(j).replace(/(\d{3})(?=\d)/g, `$1${qty}`)
+      + (precise ? Number(tail).toFixed(precise).slice(1) : tail)
     );
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    let value = e.target.value;
+    let { value } = e.target;
     value = value.replace(/[^,.0-9]/, '');
     if (!/[.]{1}[0]*$/.test(value)) {
       value = value.replace(/[,]/g, '');

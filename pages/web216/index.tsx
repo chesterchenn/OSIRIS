@@ -1,7 +1,7 @@
-import styles from './web.module.scss';
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import BackToHome from 'components/back-to-home';
 import clsx from 'clsx';
+import styles from './web.module.scss';
 
 function createElement(bg: string[]) {
   const showWhite = bg.reduce((prev, val) => {
@@ -12,7 +12,7 @@ function createElement(bg: string[]) {
   const element = (
     <div
       className={clsx(styles.ele, showWhite >= 3 && styles.whiteText)}
-      style={{ backgroundColor: backgroundColor }}
+      style={{ backgroundColor }}
     >
       {backgroundColor}
     </div>
@@ -27,13 +27,9 @@ export default function () {
       <BackToHome />
       <h2>Hello, Web216</h2>
       <div className={styles.flex}>
-        {colors.map((r: string) =>
-          colors.map((g: string) =>
-            colors.map((b: string) => (
-              <Fragment key={`${r}${g}${b}`}>{createElement([r, g, b])}</Fragment>
-            ))
-          )
-        )}
+        {colors.map((r: string) => colors.map((g: string) => colors.map((b: string) => (
+          <Fragment key={`${r}${g}${b}`}>{createElement([r, g, b])}</Fragment>
+        ))))}
       </div>
     </>
   );

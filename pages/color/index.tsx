@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import styles from './color.module.scss';
 import { useForm } from 'react-hook-form';
 import BackToHome from 'components/back-to-home';
 import Input from 'components/input';
 import Button from 'components/button';
+import styles from './color.module.scss';
 
 function getVal(val: string) {
   return parseInt(val).toString(16).padStart(2, '0');
@@ -18,17 +18,16 @@ export default function () {
     const [rr, gg, bb] = [getVal(r), getVal(g), getVal(b)];
     const bgColor = `#${rr}${gg}${bb}`;
     const msg = bgColor.includes('NaN')
-      ? `请输入数字值`
+      ? '请输入数字值'
       : bgColor.includes('-')
-        ? `请输入正整数`
+        ? '请输入正整数'
         : bgColor.length > 7
-          ? `请输入不超过255的值`
+          ? '请输入不超过255的值'
           : null;
     msg ?? setBGColor(bgColor);
   });
 
   const onHexSubmit = handleSubmit((data) => {
-    console.log(data);
     let { hex } = data;
     const arr = [];
     if (hex.startsWith('#')) {
@@ -51,35 +50,32 @@ export default function () {
         <form onSubmit={onSubmit}>
           <div className={styles.flex}>
             <label>R </label>
-            <Input {...register('r')} placeholder='请输入R' />
+            <Input {...register('r')} placeholder="请输入R" />
           </div>
           <div className={styles.flex}>
             <label>G </label>
-            <Input {...register('g')} placeholder='请输入G' />
+            <Input {...register('g')} placeholder="请输入G" />
           </div>
           <div className={styles.flex}>
             <label>B </label>
-            <Input {...register('b')} placeholder='请输入B' />
+            <Input {...register('b')} placeholder="请输入B" />
           </div>
 
-          <Button type='submit'>转换</Button>
-          <Button type='reset'>重置</Button>
+          <Button type="submit">转换</Button>
+          <Button type="reset">重置</Button>
         </form>
 
         <form onSubmit={onHexSubmit}>
-          <div className='flex'>
+          <div className="flex">
             <label>16进制 </label>
-            <Input {...register('hex')} placeholder='请输入16进制' />
+            <Input {...register('hex')} placeholder="请输入16进制" />
           </div>
-          <Button type='submit'>转换</Button>
-          <Button type='reset'>重置</Button>
+          <Button type="submit">转换</Button>
+          <Button type="reset">重置</Button>
         </form>
       </div>
       <div>{bgColor}</div>
-      <div
-        className='showColor'
-        style={{ width: 200, height: 200, backgroundColor: bgColor }}
-      ></div>
+      <div className="showColor" style={{ width: 200, height: 200, backgroundColor: bgColor }} />
     </div>
   );
 }
