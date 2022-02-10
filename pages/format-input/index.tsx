@@ -14,7 +14,7 @@ export default function () {
     const i = `${Math.abs(parseInt(String(num), 10))}`;
 
     const tail = String(Math.abs(num)).slice(i.length);
-    let j = i.length > 3 ? i.length % 3 : 0;
+    const j = i.length > 3 ? i.length % 3 : 0;
     return (
       negative +
       (j ? i.substr(0, j) + qty : '') +

@@ -20,17 +20,17 @@ export default function () {
     const msg = bgColor.includes('NaN')
       ? `请输入数字值`
       : bgColor.includes('-')
-      ? `请输入正整数`
-      : bgColor.length > 7
-      ? `请输入不超过255的值`
-      : null;
+        ? `请输入正整数`
+        : bgColor.length > 7
+          ? `请输入不超过255的值`
+          : null;
     msg ?? setBGColor(bgColor);
   });
 
   const onHexSubmit = handleSubmit((data) => {
     console.log(data);
     let { hex } = data;
-    let arr = [];
+    const arr = [];
     if (hex.startsWith('#')) {
       hex = hex.slice(1);
     }
