@@ -1,11 +1,10 @@
+import React from 'react';
 import Link from 'next/link';
 
-export default function BackToHome() {
+export function BackToHome() {
   return (
     <div>
-      <Link href="/">
-        <a>Back to Home</a>
-      </Link>
+      <Link href="/">{(href: string) => <a href={href}>Back to Home</a>}</Link>
     </div>
   );
 }

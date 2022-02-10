@@ -1,1 +1,1 @@
-export { default } from './BackToHome';
+export * from './BackToHome';

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "next dev",
     "build": "next build && next export",
-    "lint": "eslint {components,pages}/**/*.{ts,tsx,js,jsx}"
+    "lint": "eslint . --ext .tsx"
   },
   "repository": {
     "type": "git",
