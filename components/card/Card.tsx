@@ -7,7 +7,7 @@ interface Props {
   className?: string;
 }
 
-export function Card(props: Props) {
+export default function Card(props: Props) {
   const { ...rest } = props;
   return (
     <div className={clsx(styles.card)} {...rest}>

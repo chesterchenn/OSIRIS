@@ -84,6 +84,6 @@ module.exports = {
     ],
 
     // 取消导出模块只有一个导出时，必须使用 default 导出
-    'import/prefer-default-export': 'off',
+    // 'import/prefer-default-export': 'off',
   },
 };

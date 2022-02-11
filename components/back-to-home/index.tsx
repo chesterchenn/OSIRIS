@@ -1,1 +1,3 @@
-export * from './BackToHome';
+import BackToHome from './BackToHome';
+
+export default BackToHome;

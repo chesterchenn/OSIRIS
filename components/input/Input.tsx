@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './style.module.scss';
 
 type IProps = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
+React.InputHTMLAttributes<HTMLInputElement>,
+HTMLInputElement
 >;
 
-export const Input = React.forwardRef<HTMLInputElement, IProps>((props, ref) => (
+export default const Input = React.forwardRef<HTMLInputElement, IProps>((props, ref) => (
   <input autoComplete="off" className={styles.input} {...props} ref={ref} />
 ));
