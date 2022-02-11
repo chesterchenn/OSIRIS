@@ -5,7 +5,7 @@ import styles from './web.module.scss';
 
 function createElement(bg: string[]) {
   const showWhite = bg.reduce((prev, val) => {
-    if (['00', '33', '66'].includes(val)) prev++;
+    if (['00', '33', '66'].includes(val)) prev += 1;
     return prev;
   }, 0);
   const backgroundColor = `#${bg.join('')}`;
@@ -20,7 +20,7 @@ function createElement(bg: string[]) {
   return element;
 }
 
-export default function () {
+export default function Web216() {
   const colors: string[] = ['00', '33', '66', '99', 'cc', 'ff'];
   return (
     <>

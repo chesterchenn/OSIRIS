@@ -4,15 +4,18 @@ import styles from './style.module.scss';
 
 interface Props {
   children?: React.ReactNode;
-  className?: string;
 }
 
 export default function Card(props: Props) {
-  const { ...rest } = props;
+  const { children, ...rest } = props;
   return (
     <div className={clsx(styles.card)} {...rest}>
       <div className={styles.card__body} />
-      <div className={styles.card__footer}>{props.children}</div>
+      <div className={styles.card__footer}>{children}</div>
     </div>
   );
 }
+
+Card.defaultProps = {
+  children: null,
+};

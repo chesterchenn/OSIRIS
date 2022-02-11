@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import BackToHome from 'components/back-to-home';
 import Input from 'components/input';
 
-export default function () {
+export default function FormInput() {
   const [val, setVal] = useState<string>('');
   /**
    * 格式化千分位
@@ -10,7 +10,7 @@ export default function () {
   function formatqty(number: number | string, precise = 0, qty = ',') {
     const num = Number(number);
     const negative = num < 0 ? '-' : '';
-    if (number === '' || isNaN(num)) return number.toString();
+    if (number === '' || Number.isNaN(num)) return number.toString();
     const i = `${Math.abs(parseInt(String(num), 10))}`;
 
     const tail = String(Math.abs(num)).slice(i.length);

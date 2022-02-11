@@ -13,3 +13,7 @@ export default function Button(props: ButtonProps) {
     </button>
   );
 }
+
+Button.defaultProps = {
+  children: null,
+};

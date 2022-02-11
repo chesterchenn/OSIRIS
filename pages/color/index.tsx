@@ -6,25 +6,30 @@ import Button from 'components/button';
 import styles from './color.module.scss';
 
 function getVal(val: string) {
-  return parseInt(val).toString(16).padStart(2, '0');
+  return parseInt(val, 10).toString(16).padStart(2, '0');
 }
 
-export default function () {
+export default function Colors() {
   const { register, handleSubmit } = useForm();
   const [bgColor, setBGColor] = useState('');
+  const [msg, setMsg] = useState('');
 
   const onSubmit = handleSubmit((data) => {
     const { r, g, b } = data;
     const [rr, gg, bb] = [getVal(r), getVal(g), getVal(b)];
-    const bgColor = `#${rr}${gg}${bb}`;
-    const msg = bgColor.includes('NaN')
-      ? '请输入数字值'
-      : bgColor.includes('-')
-        ? '请输入正整数'
-        : bgColor.length > 7
-          ? '请输入不超过255的值'
-          : null;
-    msg ?? setBGColor(bgColor);
+    const rrggbb = `#${rr}${gg}${bb}`;
+
+    if (rrggbb.includes('NaN')) {
+      setMsg('请输入数字值');
+    } else if (rrggbb.includes('-')) {
+      setMsg('请输入正整数');
+    } else if (rrggbb.length > 7) {
+      setMsg('请输入不超过255的值');
+    } else {
+      setMsg('');
+    }
+
+    setBGColor(rrggbb);
   });
 
   const onHexSubmit = handleSubmit((data) => {
@@ -34,13 +39,13 @@ export default function () {
       hex = hex.slice(1);
     }
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i += 1) {
       const v = hex.slice(i * 2, (i + 1) * 2);
       const t = parseInt(v, 16).toString(10);
       arr.push(t);
     }
-    const bgColor = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
-    setBGColor(bgColor);
+    const rgb = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
+    setBGColor(rgb);
   });
 
   return (
@@ -74,8 +79,10 @@ export default function () {
           <Button type="reset">重置</Button>
         </form>
       </div>
-      <div>{bgColor}</div>
-      <div className="showColor" style={{ width: 200, height: 200, backgroundColor: bgColor }} />
+      <div>{msg !== '' ? msg : bgColor}</div>
+      {msg === '' && (
+        <div className="showColor" style={{ width: 200, height: 200, backgroundColor: bgColor }} />
+      )}
     </div>
   );
 }
