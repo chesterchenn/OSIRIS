@@ -1,1 +1,3 @@
-export { navs as navs } from './navs';
+import navs from './navs';
+
+export { navs };

@@ -83,6 +83,8 @@ module.exports = {
       },
     ],
 
-    'jsx-a11y/label-has-associated-control': 'warn'
+    'jsx-a11y/label-has-associated-control': 'off',
+    '@typescript-eslint/indent': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
 };

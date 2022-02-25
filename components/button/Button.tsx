@@ -3,12 +3,13 @@ import styles from './style.module.scss';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export default function Button(props: ButtonProps) {
-  const { children, ...rest } = props;
+  const { children, type, ...rest } = props;
   return (
-    <button {...rest} className={styles.btn}>
+    <button type={type} className={styles.btn} {...rest}>
       {children}
     </button>
   );
@@ -16,4 +17,5 @@ export default function Button(props: ButtonProps) {
 
 Button.defaultProps = {
   children: null,
+  type: 'button',
 };

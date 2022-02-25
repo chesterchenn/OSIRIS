@@ -3,7 +3,7 @@ interface Nav {
   link: string;
 }
 
-export const navs: Nav[] = [
+const navs: Nav[] = [
   {
     title: 'Color',
     link: '/color',
@@ -17,3 +17,5 @@ export const navs: Nav[] = [
     link: '/format-input',
   },
 ];
+
+export default navs;
