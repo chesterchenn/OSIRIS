@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function BackToHome() {
   return (
     <div>
-      <Link href="/">Back to Home</Link>
+      <Link href="/">Home</Link>
     </div>
   );
 }

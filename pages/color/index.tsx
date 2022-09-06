@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import BackToHome from 'components/back-to-home';
 import Input from 'components/input';
 import Button from 'components/button';
 import styles from './color.module.scss';
@@ -49,8 +48,7 @@ export default function Colors() {
   });
 
   return (
-    <div>
-      <BackToHome />
+    <>
       <div className={styles.flex}>
         <form onSubmit={onSubmit}>
           <div className={styles.flex}>
@@ -83,6 +81,6 @@ export default function Colors() {
       {msg === '' && (
         <div className="showColor" style={{ width: 200, height: 200, backgroundColor: bgColor }} />
       )}
-    </div>
+    </>
   );
 }
