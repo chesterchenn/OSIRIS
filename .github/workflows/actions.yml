@@ -17,8 +17,11 @@ jobs:
       - name: checkout out code
         uses: actions/checkout@v2
 
+      - name: install pnpm
+        run: npm install -g pnpm
+
       - name: install dependency
-        run: npm install -g pnpm & pnpm
+        run: pnpm install
 
       - name: run bin/build.sh
         run: bash bin/build.sh ${{ secrets.GITHUB_TOKEN }}
