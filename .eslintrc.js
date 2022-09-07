@@ -86,5 +86,6 @@ module.exports = {
     'jsx-a11y/label-has-associated-control': 'off',
     '@typescript-eslint/indent': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/button-has-type': 'off',
   },
 };
