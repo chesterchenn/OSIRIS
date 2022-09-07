@@ -17,7 +17,7 @@ module.exports = {
     project: './tsconfig.json',
   },
   plugins: ['react', '@typescript-eslint'],
-  extends: ['airbnb', 'airbnb-typescript'],
+  extends: ['airbnb', 'airbnb-typescript', 'prettier'],
   rules: {
     // 指定 2 格缩进
     // https://eslint.org/docs/rules/indent
