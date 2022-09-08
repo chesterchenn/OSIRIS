@@ -4,10 +4,10 @@ import FOODS from 'docs/foods';
 
 export default function Food() {
   const [list, setList] = useState('');
-  function randomFood() {
+  const randomFood = () => {
     const r = Math.floor(Math.random() * FOODS.length);
     setList(FOODS[r]);
-  }
+  };
   return (
     <>
       <h1>今天吃什么</h1>
