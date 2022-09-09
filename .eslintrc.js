@@ -87,5 +87,6 @@ module.exports = {
     '@typescript-eslint/indent': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/button-has-type': 'off',
+    'import/prefer-default-export': 'off',
   },
 };
