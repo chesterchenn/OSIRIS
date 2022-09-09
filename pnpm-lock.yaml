@@ -14,6 +14,7 @@ specifiers:
   eslint-plugin-import: ^2.26.0
   eslint-plugin-jsx-a11y: ^6.6.1
   eslint-plugin-react: ^7.31.7
+  husky: ^8.0.1
   next: ^12.2.5
   react: ^17.0.2
   react-dom: ^17.0.2
@@ -45,6 +46,7 @@ devDependencies:
   eslint-plugin-import: 2.26.0_iepzrjnvahcxaf6zc7cutko6om
   eslint-plugin-jsx-a11y: 6.6.1_eslint@8.23.0
   eslint-plugin-react: 7.31.7_eslint@8.23.0
+  husky: 8.0.1
 
 packages:
 
@@ -1294,6 +1296,12 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
+    dev: true
+
+  /husky/8.0.1:
+    resolution: {integrity: sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /ignore/5.2.0:
