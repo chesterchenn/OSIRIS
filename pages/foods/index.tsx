@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Button from 'components/button';
-import FOODS from 'docs/foods';
+import foodsJSON from 'docs/foods.json';
 
 export default function Food() {
   const [list, setList] = useState('');
+  const FOODS = foodsJSON.foods;
   const randomFood = () => {
-    const r = Math.floor(Math.random() * FOODS.length);
-    setList(FOODS[r]);
+    const random = Math.floor(Math.random() * FOODS.length);
+    setList(FOODS[random].name);
   };
   return (
     <>
