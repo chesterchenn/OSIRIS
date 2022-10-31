@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <div className={styles.home}>
       {navs.map((n) => (
-        <Card key={n.link}>
-          <Link href={n.link}>{n.title}</Link>
-        </Card>
+        <Link href={n.link} key={n.link}>
+          <Card>{n.title}</Card>
+        </Link>
       ))}
     </div>
   );
