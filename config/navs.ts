@@ -16,6 +16,10 @@ const navs: Nav[] = [
     title: 'Foods',
     link: '/foods',
   },
+  {
+    title: 'Million',
+    link: '/million',
+  },
 ];
 
 export default navs;
