@@ -1,14 +1,14 @@
 import React from 'react';
 import Button from 'components/button';
 
-const Million = () => {
+function Million() {
   const total = 1000000;
   function add(idx: string) {
     const divElement = document.createElement('div');
     const root = document.getElementById('root');
     const random = Math.floor(Math.random() * total);
     divElement.innerText = `${idx.padStart(6, '0')}  ${random}`;
-    divElement.setAttribute('style', 'background: #ff0; margin: 2px;');
+    divElement.setAttribute('style', 'background: #ffe411; margin: 2px;');
     root?.appendChild(divElement);
   }
   function a() {
@@ -21,9 +21,9 @@ const Million = () => {
   return (
     <>
       <Button onClick={() => a()}>Button</Button>
-      <div id="root"></div>
+      <div id="root" />
     </>
   );
-};
+}
 
 export default Million;

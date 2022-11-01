@@ -83,6 +83,14 @@ module.exports = {
       },
     ],
 
+    // 禁止++，只允许循环中使用
+    'no-plusplus': [
+      'error',
+      {
+        allowForLoopAfterthoughts: true,
+      },
+    ],
+
     'jsx-a11y/label-has-associated-control': 'off',
     '@typescript-eslint/indent': 'off',
     'react/jsx-props-no-spreading': 'off',
