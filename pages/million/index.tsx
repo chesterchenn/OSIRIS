@@ -6,6 +6,12 @@ function Million() {
   const once = 200;
   const counter = total / once;
   let renderCounter = 1;
+  function b() {
+    if (renderCounter <= counter) {
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+      window.requestAnimationFrame(add);
+    }
+  }
   function add() {
     const fragment = document.createDocumentFragment();
     const root = document.getElementById('root');
@@ -19,7 +25,6 @@ function Million() {
     }
     root?.appendChild(fragment);
     renderCounter += 1;
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     b();
   }
   function addA() {
@@ -33,11 +38,6 @@ function Million() {
       fragment.appendChild(divElement);
     }
     root?.appendChild(fragment);
-  }
-  function b() {
-    if (renderCounter <= counter) {
-      window.requestAnimationFrame(add);
-    }
   }
   return (
     <>

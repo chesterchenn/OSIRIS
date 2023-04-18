@@ -20,6 +20,10 @@ const navs: Nav[] = [
     title: 'Million',
     link: '/million',
   },
+  {
+    title: 'Tree Chart',
+    link: '/treechart',
+  }
 ];
 
 export default navs;
