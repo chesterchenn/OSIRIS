@@ -39,28 +39,9 @@ $node-padding: 5px;
   border-top: $line-width solid #ff0000;
 }
 
-// .nodeLines {
-//   ::before {
-//     @extend .verticalLine;
-//     right: 50%;
-//     width: 50%;
-//     border-top: $line-width solid #ff0000;
-//   }
-//   ::after {
-//     left: 50%;
-//     border-left: $line-width solid #ff0000;
-//   }
+// .node:only-of-type {
+//   padding: 0;
 // }
-
-.node:only-of-type {
-  padding: 0;
-}
-.node:only-of-type::after {
-  display: none;
-}
-.node:only-of-type::before {
-  display: none;
-}
 
 .node:first-of-type {
   color: #ff0880;
@@ -83,6 +64,12 @@ $node-padding: 5px;
 .node:last-of-type::after {
   border: 0 none;
 }
+.node:only-of-type::after {
+  border-radius: 0;
+}
+.node:only-of-type::before {
+  border-radius: 0;
+}
 
 .childrenContainer {
   display: flex;
@@ -100,4 +87,37 @@ $node-padding: 5px;
   left: calc(50% - $line-width / 2);
   width: 0;
   border-left: $line-width solid #ff0000;
+}
+.childrenContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: $line-height;
+  box-sizing: border-box;
+  left: calc(50% - $line-width / 2);
+  width: 0;
+  border-left: $line-width solid #ff0000;
+}
+.haswife {
+  position: relative;
+  left: 12.5%;
+}
+
+.haswife::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  height: $line-height;
+  box-sizing: border-box;
+  left: calc(50% - 35px);
+  width: calc(25%);
+  border-top: 1px solid #f00;
+  border-left: none;
+}
+
+
+.couple {
+  position: absolute;
+  top: -24px;
+  left: calc(50% + 38px);
 }
