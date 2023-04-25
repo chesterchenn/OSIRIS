@@ -1,8 +1,8 @@
-import React from 'react';
-import clsx from 'clsx';
-import TreeNode, {Couple} from './TreeNode';
-import Tree from './Tree';
-import styles from './index.module.scss';
+import React from "react";
+import clsx from "clsx";
+import TreeNode, { Couple } from "./TreeNode";
+import Tree from "./Tree";
+import styles from "./index.module.scss";
 
 interface ILabel {
   label: string;
@@ -10,7 +10,9 @@ interface ILabel {
 }
 
 function Label({ label, hasWife }: ILabel) {
-  return <span className={clsx({[styles.hasWifeLabel]: hasWife})}>{label}</span>;
+  return (
+    <span className={clsx({ [styles.hasWifeLabel]: hasWife })}>{label}</span>
+  );
 }
 
 Label.defaultProps = {
@@ -19,7 +21,7 @@ Label.defaultProps = {
 
 function TreeChart() {
   return (
-    <Tree label=<Label label='Root' />>
+    <Tree label=<Label label="Root" />>
       <TreeNode label="1-1">
         <TreeNode label="2-1">
           <TreeNode label=<Label label="3-1" /> hasWife>
@@ -35,8 +37,11 @@ function TreeChart() {
         </TreeNode>
       </TreeNode>
       <TreeNode label="1-2">
-        <TreeNode label="2-3">
-          <TreeNode label="3-3" />
+        <TreeNode label="2-3" hasWife>
+          <Couple label="2-3-x" />
+          <TreeNode label="3-3" hasWife>
+            <Couple label="3-3-x" />
+          </TreeNode>
         </TreeNode>
       </TreeNode>
     </Tree>

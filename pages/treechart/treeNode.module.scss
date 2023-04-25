@@ -3,7 +3,7 @@ $line-height: 20px;
 $node-padding: 5px;
 
 .verticalLine {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   height: $line-height;
@@ -18,7 +18,7 @@ $node-padding: 5px;
   padding: $line-height $node-padding 0px $node-padding;
 }
 .node::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   height: $line-height;
@@ -30,7 +30,7 @@ $node-padding: 5px;
 .node::after {
   left: 50%;
   border-left: $line-width solid #ff0000;
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   height: $line-height;
@@ -48,6 +48,7 @@ $node-padding: 5px;
 }
 .node:first-of-type::after {
   border-radius: 5px 0 0 0;
+  width: calc(50% + $line-width / 2);
 }
 .node:first-of-type::before {
   border: 0 none;
@@ -80,7 +81,7 @@ $node-padding: 5px;
   position: relative;
 }
 .childrenContainer::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   height: $line-height;
@@ -90,7 +91,7 @@ $node-padding: 5px;
   border-left: $line-width solid #ff0000;
 }
 .childrenContainer::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   height: $line-height;
@@ -105,17 +106,16 @@ $node-padding: 5px;
 }
 
 .haswife::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0px;
   height: $line-height;
   box-sizing: border-box;
   left: 40%;
   width: 20%;
-  border-top: 1px solid #f00;
+  border-top: $line-width solid #f00;
   border-left: none;
 }
-
 
 .couple {
   position: absolute;
