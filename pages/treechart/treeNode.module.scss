@@ -1,4 +1,4 @@
-$line-width: 1px;
+$line-width: 2px;
 $line-height: 20px;
 $node-padding: 5px;
 
@@ -60,6 +60,7 @@ $node-padding: 5px;
 .node:last-of-type::before {
   border-right: $line-width solid #ff0000;
   border-radius: 0 5px 0 0;
+  left: $line-width / 2;
 }
 .node:last-of-type::after {
   border: 0 none;
@@ -109,8 +110,8 @@ $node-padding: 5px;
   top: 0px;
   height: $line-height;
   box-sizing: border-box;
-  left: calc(50% - 35px);
-  width: calc(25%);
+  left: 40%;
+  width: 20%;
   border-top: 1px solid #f00;
   border-left: none;
 }
@@ -119,5 +120,5 @@ $node-padding: 5px;
 .couple {
   position: absolute;
   top: -24px;
-  left: calc(50% + 38px);
+  left: 60%;
 }
