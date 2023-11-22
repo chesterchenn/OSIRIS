@@ -1,25 +1,4 @@
-.flex {
-  display: flex;
-  margin: 8px;
-  align-content: center;
-}
-
-.flex > form {
-  flex-grow: 1;
-}
-
-.flex > label {
-  text-align: right;
-  line-height: 1.5;
-  padding-right: 8px;
-}
-
-.flex > input {
-  flex-basis: 160px;
-  line-height: 1.5;
-}
-
 .showColor {
-  width: 140px;
-  height: 140px;
+  width: 200px;
+  height: 200px;
 }

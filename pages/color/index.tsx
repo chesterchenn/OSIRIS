@@ -1,86 +1,176 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import Input from 'components/input';
-import Button from 'components/button';
+import React, { useEffect, useState } from 'react';
+import {
+  Input,
+  Grid,
+  GridItem,
+  Container,
+  VStack,
+  Button,
+} from '@chakra-ui/react';
 import styles from './color.module.scss';
 
 function getVal(val: string) {
   return parseInt(val, 10).toString(16).padStart(2, '0');
 }
 
-export default function Colors() {
-  const { register, handleSubmit } = useForm();
+function Colors() {
   const [bgColor, setBGColor] = useState('');
-  const [msg, setMsg] = useState('');
+  const [bgHex, setBGHex] = useState('');
+  const [red, setRed] = useState('0');
+  const [green, setGreen] = useState('0');
+  const [blue, setBlue] = useState('0');
+  const [hex, setHex] = useState('');
+  const [preVal, setPreVal] = useState('');
 
-  const onSubmit = handleSubmit((data) => {
-    const { r, g, b } = data;
-    const [rr, gg, bb] = [getVal(r), getVal(g), getVal(b)];
-    const rrggbb = `#${rr}${gg}${bb}`;
-
-    if (rrggbb.includes('NaN')) {
-      setMsg('请输入数字值');
-    } else if (rrggbb.includes('-')) {
-      setMsg('请输入正整数');
-    } else if (rrggbb.length > 7) {
-      setMsg('请输入不超过255的值');
-    } else {
-      setMsg('');
+  useEffect(() => {
+    if (red === '' || green === '' || blue === '') {
+      return;
     }
+    const [redHex, greenHex, blueHex] = [
+      getVal(red),
+      getVal(green),
+      getVal(blue),
+    ];
+    setBGColor(`#${redHex}${greenHex}${blueHex}`);
+  }, [red, green, blue]);
 
-    setBGColor(rrggbb);
-  });
-
-  const onHexSubmit = handleSubmit((data) => {
-    let { hex } = data;
+  useEffect(() => {
     const arr = [];
+    let hexValue = hex;
     if (hex.startsWith('#')) {
-      hex = hex.slice(1);
+      hexValue = hex.slice(1);
     }
 
     for (let i = 0; i < 3; i += 1) {
-      const v = hex.slice(i * 2, (i + 1) * 2);
+      const v = hexValue.slice(i * 2, (i + 1) * 2);
       const t = parseInt(v, 16).toString(10);
       arr.push(t);
     }
     const rgb = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
-    setBGColor(rgb);
-  });
+    setBGHex(rgb);
+  }, [hex]);
+
+  const handleColorChange = (val: string, key: string) => {
+    let value = val.replace(/[^0-9]/g, '');
+    if (Number(value) > 255) value = '255';
+    if (key === 'red') {
+      setRed(value);
+      return;
+    }
+    if (key === 'green') {
+      setGreen(value);
+      return;
+    }
+    if (key === 'blue') {
+      setBlue(value);
+    }
+  };
+
+  const handleFocus = (val: string, key: string) => {
+    setPreVal(val);
+    handleColorChange('', key);
+  };
+
+  const handleBlur = (val: string, key: string) => {
+    if (val === '') {
+      setPreVal('');
+      handleColorChange(preVal, key);
+    }
+  };
+
+  const handleColorReset = () => {
+    setRed('0');
+    setBlue('0');
+    setGreen('0');
+  };
+
+  const handleHexChange = (value: string) => {
+    const val = value.replace(/[^0-9a-fA-F]/g, '');
+    setHex(val);
+  };
+
+  const handlehexReset = () => {
+    setHex('#000000');
+  };
 
   return (
-    <>
-      <div className={styles.flex}>
-        <form onSubmit={onSubmit}>
-          <div className={styles.flex}>
-            <label>R </label>
-            <Input {...register('r')} placeholder="请输入R" />
-          </div>
-          <div className={styles.flex}>
-            <label>G </label>
-            <Input {...register('g')} placeholder="请输入G" />
-          </div>
-          <div className={styles.flex}>
-            <label>B </label>
-            <Input {...register('b')} placeholder="请输入B" />
-          </div>
+    <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+      <Container>
+        <VStack>
+          <Grid templateColumns="80px 1fr">
+            <GridItem alignSelf="center">红色R</GridItem>
+            <GridItem w="100%" h="10">
+              <Input
+                placeholder={preVal}
+                focusBorderColor="#ff4757"
+                value={red}
+                onChange={(e) => handleColorChange(e.target.value, 'red')}
+                onFocus={(e) => handleFocus(e.target.value, 'red')}
+                onBlur={(e) => handleBlur(e.target.value, 'red')}
+              />
+            </GridItem>
+          </Grid>
+          <Grid templateColumns="80px 1fr">
+            <GridItem alignSelf="center">绿色G</GridItem>
+            <GridItem w="100%" h="10">
+              <Input
+                placeholder={preVal}
+                focusBorderColor="#2ed573"
+                value={green}
+                onChange={(e) => handleColorChange(e.target.value, 'green')}
+                onFocus={(e) => handleFocus(e.target.value, 'green')}
+                onBlur={(e) => handleBlur(e.target.value, 'green')}
+              />
+            </GridItem>
+          </Grid>
+          <Grid templateColumns="80px 1fr">
+            <GridItem alignSelf="center">蓝色B</GridItem>
+            <GridItem w="100%" h="10">
+              <Input
+                placeholder={preVal}
+                focusBorderColor="#1e90ff"
+                value={blue}
+                onChange={(e) => handleColorChange(e.target.value, 'blue')}
+                onFocus={(e) => handleFocus(e.target.value, 'blue')}
+                onBlur={(e) => handleBlur(e.target.value, 'blue')}
+              />
+            </GridItem>
+          </Grid>
+          <Button colorScheme="blue" onClick={handleColorReset}>
+            重置
+          </Button>
+          <div
+            className={styles.showColor}
+            style={{ backgroundColor: bgColor }}
+          />
+          <div>{bgColor}</div>
+        </VStack>
+      </Container>
 
-          <Button type="submit">转换</Button>
-          <Button type="reset">重置</Button>
-        </form>
-
-        <form onSubmit={onHexSubmit}>
-          <div className="flex">
-            <label>16进制 </label>
-            <Input {...register('hex')} placeholder="请输入16进制" />
-          </div>
-          <Button type="submit">转换</Button>
-          <Button type="reset">重置</Button>
-        </form>
-      </div>
-      <div>{msg !== '' ? msg : bgColor}</div>
-      {msg === '' && (
-        <div className="showColor" style={{ width: 200, height: 200, backgroundColor: bgColor }} />
-      )}
-    </>
+      <Container>
+        <VStack>
+          <Grid templateColumns="80px 1fr">
+            <GridItem alignSelf="center">16进制</GridItem>
+            <GridItem w="100%" h="10">
+              <Input
+                placeholder="请输入16进制"
+                onChange={(e) => handleHexChange(e.target.value)}
+                value={hex}
+              />
+            </GridItem>
+          </Grid>
+          <Button colorScheme="blue" onClick={handlehexReset}>
+            重置
+          </Button>
+          <div
+            className={styles.showColor}
+            style={{ backgroundColor: bgHex }}
+          />
+          <div>{bgHex}</div>
+        </VStack>
+      </Container>
+    </Grid>
   );
 }
+
+export default Colors;

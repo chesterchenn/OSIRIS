@@ -1,16 +1,11 @@
 .card {
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
-    rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
+    rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
   border-radius: 4px;
   width: 245px;
-  min-height: 180px;
-
-  &__body {
-    height: 140px;
-  }
-
-  &__footer {
-    text-align: center;
-    line-height: 40px;
-  }
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  line-height: 42px;
 }
