@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "lint": "eslint . --ext .tsx --ext .ts",
     "lint:fix": "eslint . --ext .tsx --fix",
     "prepare": "husky install"
